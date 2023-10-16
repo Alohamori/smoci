@@ -1,0 +1,51 @@
+{
+  "only-connect": {
+    "hash": "f60c29c1a878f4551290e8fd839f4a151e3cf0537fb4cf3bc5b5beb973cd684b",
+    "size": 2256896,
+    "file": "only-connect.db",
+    "tables": {
+      "matches": {
+        "count": 449
+      },
+      "matchups": {
+        "count": 424
+      },
+      "teams": {
+        "count": 361
+      },
+      "contestants": {
+        "count": 917
+      },
+      "connequences": {
+        "count": 5340
+      },
+      "walls": {
+        "count": 918
+      },
+      "wall_groups": {
+        "count": 3672
+      },
+      "vowel_sets": {
+        "count": 1612
+      },
+      "vowel_clues": {
+        "count": 5781
+      },
+      "vowel_clues_by_contestant": {
+        "count": 5936
+      },
+      "match_scores": {
+        "count": 890
+      },
+      "round_scores": {
+        "count": 3560
+      },
+      "bonus_points": {
+        "count": 3
+      },
+      "play_by_play": {
+        "count": 14645
+      }
+    }
+  }
+}

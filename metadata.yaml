@@ -1,0 +1,78 @@
+title: So Much Only Connect Information
+home_text: SMOCI
+
+databases:
+  only-connect:
+    source: OCDB
+    source_url: https://ocdb.cc/
+    queries:
+      unanswered_novelties:
+        sql: |-
+          select
+            [!] novelty,
+            round(count(case when points = 0 then 1 end) * 100.0 / count(), 1) '% unanswered'
+          from
+            connequences c
+            join matches m on c.match = m.id
+          where
+            m.broadcast < '2020-02-03'
+          group by
+            novelty
+    tables:
+      bonus_points:
+        columns:
+          ?: This table exists to account for the handful of occasions on which Victoria has unilaterally awarded points for quiz-adjacent reasons.
+      connequences:
+        columns:
+          kind: indicates whether the question occurred during the Connections (🧩) or Sequences (🔢) round.
+          '! (novelty)': 🖼 for picture questions, 𝄞 for music; links directly to relevant media on OCDB if applicable
+          clues: Some effort has been made to display the clues as they were presented on the show, but approximations abound.
+          points: A value of -1 is used to indicate that a bonus point was awarded to the other team.
+          time: |-
+            obtained by measuring the time-elapsed bar once it stopped progressing
+            The value 40 is reserved for the handful of occasions on which the team was allowed to answer despite the buzzer having sounded.
+        sortable_columns: [id, match, team, clues, connection, points, time]
+      matches:
+        columns:
+          S (series): A value of 0 is used as a catch-all for specials.
+          card: Teams are arranged by order of introduction,
+            which doesn't always align with the official episode title.
+          coin: The absolute value indicates which team went first,
+            with a negative value signifying that it was at the other team's behest.
+          LC (lead changes): For the purpose of determining this value, ties constitute
+            lead changes and Connecting Wall points are distributed in three stages.
+          matchup: sorted alphabetically to facilitate rematch discovery
+        label_column: card
+      matchups:
+        label_column: label
+      round_scores:
+        columns:
+          cum_score: cumulative score at the end of the round
+      teams:
+        columns:
+          series: Teams are distinct over name and series to account for the occasional recycled name,
+            but also to distinguish between regular matches and specials.
+      vowel_clues:
+        columns:
+          right: contains multiple contestants in cases where they gave the correct answer more or less in unison
+          wrong: includes contestants who buzzed in without giving an answer (thus costing their team a point), as well as those who tried unsuccessfully for the second-chance point
+        label_column: clue
+      vowel_sets:
+        columns:
+          team: A nonnull value here indicates that the team "owned" this set, having correctly answered all four clues in a full round.
+          sweeper: the contestant, if any, that participated in the provision of every answer in a full round
+          clean: When there's a sweeper, a value of 1 here indicates that they did so "cleanly", having provided every correct answer alone.
+        label_column: category
+      walls:
+        columns:
+          lives: |-
+            the number of "lives" remaining when the team either solved the wall or ran out of time
+            A null value here is distinct from 0, signifying that the team was unable to narrow the wall down to two groups.
+          time: nonnull only when the team was able to find all four groups; useful for distinguishing between solved and unsolved walls
+          PG: link to this wall as a PuzzGrid
+
+extra_css_urls:
+  - /static/styles.css
+
+extra_js_urls:
+  - /static/misc.js
