@@ -1,14 +1,14 @@
 {
   "only-connect": {
-    "hash": "f60c29c1a878f4551290e8fd839f4a151e3cf0537fb4cf3bc5b5beb973cd684b",
-    "size": 2256896,
+    "hash": "129c0cfe13f2dfc8bd8dfe9239fd6d2e54d3e7549cc03e8bf78866b3ee010f7c",
+    "size": 2265088,
     "file": "only-connect.db",
     "tables": {
       "matches": {
-        "count": 449
+        "count": 450
       },
       "matchups": {
-        "count": 424
+        "count": 425
       },
       "teams": {
         "count": 361
@@ -17,34 +17,34 @@
         "count": 917
       },
       "connequences": {
-        "count": 5340
+        "count": 5352
       },
       "walls": {
-        "count": 918
+        "count": 920
       },
       "wall_groups": {
-        "count": 3672
+        "count": 3680
       },
       "vowel_sets": {
-        "count": 1612
+        "count": 1616
       },
       "vowel_clues": {
-        "count": 5781
+        "count": 5796
       },
       "vowel_clues_by_contestant": {
-        "count": 5936
+        "count": 5952
       },
       "match_scores": {
-        "count": 890
+        "count": 892
       },
       "round_scores": {
-        "count": 3560
+        "count": 3568
       },
       "bonus_points": {
         "count": 3
       },
       "play_by_play": {
-        "count": 14645
+        "count": 14679
       }
     }
   }
